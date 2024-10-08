@@ -54,7 +54,8 @@ object ExtractPPIFromUniprot {
       .withColumn("Entry2", regexp_replace(col("Entry2"), """\[""", ""))
       .withColumn("Entry2", regexp_replace(col("Entry2"), """\]""", ""))
       .withColumn("Entry2", trim(col("Entry2")))
-      .withColumnRenamed("Entry2", interactsWithNewColumnName)
+      .withColumn(interactsWithNewColumnName, col("Entry2"))
+      .drop("Entry2")
   }
 
   private def extractIsoforms(df: DataFrame): DataFrame = {
