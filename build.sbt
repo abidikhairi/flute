@@ -6,7 +6,7 @@ val sparkVersion = "2.4.5"
 lazy val root = (project in file("."))
   .settings(
     name := "flute",
-    idePackagePrefix := Some("com.majesteye.rnd.pipelines")
+    idePackagePrefix := Some("com.majesteye.rnd.flute")
   )
 
 libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion
